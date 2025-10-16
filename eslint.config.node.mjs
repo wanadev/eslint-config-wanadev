@@ -1,5 +1,6 @@
-import baseConfig from './eslint.config.base.mjs';
 import nodePlugin from 'eslint-plugin-node';
+
+import baseConfig from './eslint.config.base.mjs';
 
 export default [
   ...baseConfig,
