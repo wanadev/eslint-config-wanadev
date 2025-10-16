@@ -1,0 +1,14 @@
+# Ignore artifacts:
+build
+coverage
+node_modules/
+vite.config.ts
+src/commons/vuejs/components/icons/*.vue
+*.gltf
+.gitlab/
+package-lock.json
+*.json
+public/
+src/assets/
+CHANGELOG.md
+components.d.ts
