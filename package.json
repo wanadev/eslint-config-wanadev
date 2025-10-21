@@ -6,7 +6,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wanadev/eslint-config-wanadev"
+    "url": "git+https://github.com/wanadev/eslint-config-wanadev.git"
   },
   "keywords": [
     "eslint",
