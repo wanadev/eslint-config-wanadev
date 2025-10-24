@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-wanadev",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Shared ESLint and Prettier configuration for Wanadev. Use this package to enforce consistent code style and linting rules across all projects.",
   "main": "index.js",
   "repository": {
