@@ -1,13 +1,9 @@
 /* eslint-disable perfectionist/sort-objects */
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
-import vueTsEslintConfig from '@vue/eslint-config-typescript';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
-import pluginVue from 'eslint-plugin-vue';
-import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 // eslint-disable-next-line import/no-unresolved
@@ -20,21 +16,15 @@ const gitignorePath = path.resolve(__dirname, '.gitignore');
 export default [
   includeIgnoreFile(gitignorePath),
   eslint.configs.recommended,
-  ...pluginVueA11y.configs['flat/recommended'],
   importPlugin.flatConfigs.recommended,
   perfectionist.configs['recommended-natural'],
-  skipFormatting,
 
   // TS
-  ...vueTsEslintConfig(),
   {
     languageOptions: {
       parserOptions: { parser: tseslint.parser },
     },
   },
-
-  // Vue
-  ...pluginVue.configs['flat/recommended'],
 
   // Prettier
   eslintConfigPrettier,
