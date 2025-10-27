@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-wanadev",
   "type": "module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Shared ESLint and Prettier configuration for Wanadev. Use this package to enforce consistent code style and linting rules across all projects.",
   "main": "index.js",
   "repository": {
@@ -30,7 +30,20 @@
     "eslint-plugin-perfectionist": "^2.5.0",
     "eslint-plugin-vue": "^9.20.0",
     "eslint-plugin-vuejs-accessibility": "^2.0.1"
-},
+  },
+  "peerDependenciesMeta": {
+    "@eslint/js": { "optional": true },
+    "@typescript-eslint/eslint-plugin": { "optional": true },
+    "@typescript-eslint/parser": { "optional": true },
+    "@vue/eslint-config-prettier": { "optional": true },
+    "@vue/eslint-config-typescript": { "optional": true },
+    "eslint": { "optional": true },
+    "eslint-config-prettier": { "optional": true },
+    "eslint-plugin-import": { "optional": true },
+    "eslint-plugin-perfectionist": { "optional": true },
+    "eslint-plugin-vue": { "optional": true },
+    "eslint-plugin-vuejs-accessibility": { "optional": true }
+  },
   "devDependencies": {
     "@eslint/compat": "^1.4.0",
     "@eslint/js": "^9.37.0",
