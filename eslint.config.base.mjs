@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -37,32 +36,32 @@ export default [
       '@typescript-eslint/naming-convention': [
         'error',
         {
-          selector: 'interface',
           format: ['PascalCase'],
           prefix: ['I'],
+          selector: 'interface',
         },
         {
-          selector: 'typeAlias',
           format: ['PascalCase'],
           prefix: ['T'],
+          selector: 'typeAlias',
         },
         {
-          selector: 'enum',
           format: ['PascalCase'],
           prefix: ['E'],
+          selector: 'enum',
         },
         {
-          selector: 'class',
-          modifiers: ['abstract'],
           format: ['PascalCase'],
+          modifiers: ['abstract'],
           prefix: ['A'],
+          selector: 'class',
         },
         // Ensure privates must start with _
         {
-          selector: 'memberLike',
-          modifiers: ['private'],
           format: ['camelCase'],
           leadingUnderscore: 'require',
+          modifiers: ['private'],
+          selector: 'memberLike',
         },
       ],
       '@typescript-eslint/no-explicit-any': ['error'],
