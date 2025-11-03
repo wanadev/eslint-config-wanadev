@@ -1,24 +1,17 @@
-import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 // eslint-disable-next-line import/no-unresolved
 import tseslint from 'typescript-eslint';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, '.gitignore');
-
 export default [
-  includeIgnoreFile(gitignorePath),
   eslint.configs.recommended,
   importPlugin.flatConfigs.recommended,
   perfectionist.configs['recommended-natural'],
 
   // TS
+  ...tseslint.configs.recommended,
   {
     languageOptions: {
       parserOptions: { parser: tseslint.parser },
@@ -30,7 +23,7 @@ export default [
 
   // General
   {
-    files: ['**/*.vue', '**/*.ts', '**/*.tsx'],
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.vue'],
     rules: {
       '@typescript-eslint/array-type': 'error',
       '@typescript-eslint/naming-convention': [
@@ -87,7 +80,6 @@ export default [
         {
           js: 'ignorePackages',
           json: 'always',
-          vue: 'always',
         },
       ],
       'import/group-exports': 'error',
@@ -134,11 +126,6 @@ export default [
         'error',
         {
           patterns: [
-            {
-              group: ['@vue/*', 'vue'],
-              importNames: ['defineProps', 'defineEmits'],
-              message: "'defineProps' and 'defineEmits' can be used within <script setup> without importing.",
-            },
             {
               group: ['.*'],
               message: 'Use absolute imports instead.',
@@ -221,52 +208,6 @@ export default [
       'prefer-regex-literals': 'off',
       'require-await': 'error',
       'space-before-blocks': 'error',
-      'vue/block-lang': [
-        'error',
-        {
-          script: {
-            lang: 'ts',
-          },
-        },
-      ],
-      'vue/block-order': [
-        'error',
-        {
-          order: ['script', 'template', 'style'],
-        },
-      ],
-      'vue/component-api-style': ['error', ['script-setup']],
-      'vue/define-emits-declaration': ['error', 'type-literal'],
-      'vue/define-macros-order': 'error',
-      'vue/define-props-destructuring': 'error',
-      'vue/enforce-style-attribute': ['error', { allow: ['scoped'] }],
-      'vue/first-attribute-linebreak': [
-        'error',
-        {
-          multiline: 'below',
-          singleline: 'beside',
-        },
-      ],
-      'vue/max-template-depth': 'warn',
-      'vue/no-import-compiler-macros': 'error',
-      'vue/no-unused-refs': 'error',
-      'vue/no-v-html': 'error',
-      'vue/prefer-true-attribute-shorthand': 'error',
-      'vue/prefer-use-template-ref': 'error',
-      'vue/singleline-html-element-content-newline': 'off',
-      'vue/v-bind-style': [
-        'error',
-        'shorthand',
-        {
-          sameNameShorthand: 'always',
-        },
-      ],
-      'vuejs-accessibility/label-has-for': [
-        'warn',
-        {
-          required: { every: ['id'] },
-        },
-      ],
     },
     settings: {
       'import/resolver': {

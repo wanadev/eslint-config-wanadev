@@ -1,5 +1,3 @@
-import baseConfig from './eslint.config.base.mjs';
+import react from 'eslint-plugin-react';
 
-export default [
-  ...baseConfig,
-];
+export default [react.configs.flat.recommended];
